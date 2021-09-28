@@ -3,13 +3,12 @@ import React from "react";
 import { FaEdit } from "react-icons/fa";
 import styles from "./EditButton.module.scss";
 
-export default function EditButton({ setEditing, item }) {
-  const openEditView = () => {
-    setEditing(true);
-  };
+class EditButton extends React.Component {
   return (
     <button type="button" className={styles.editButton}>
-      <FaEdit onClick={() => openEditView(item)} />
+      <FaEdit />
     </button>
   );
 }
+
+export default EditButton;

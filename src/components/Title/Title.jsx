@@ -1,12 +1,16 @@
 import React from "react";
+import DarkMode from "../DarkMode/DarkMode";
 import styles from "./Title.module.scss";
 
-function Title() {
+class Title extends React.Component {
   return (
     <header>
-      <h1 className={styles.Title}>T O D O</h1>
+      <div className={styles.Header}>
+        <h1 className={styles.Title}>T O D O</h1>
+        <DarkMode />
+      </div>
     </header>
   );
 }
 
-export { Title };
+export default Title;

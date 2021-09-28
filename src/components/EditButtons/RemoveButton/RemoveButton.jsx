@@ -4,14 +4,9 @@ import React from "react";
 import { FaTrashAlt } from "react-icons/fa";
 import styles from "./RemoveButton.module.scss";
 
-export default function RemoveButton({ item, toDoItem, setToDoItem }) {
-  const removeHandler = () => {
-    setToDoItem(toDoItem.filter((el) => el.id !== item.id));
-  };
-
+class RemoveButton extends React.Component {
   return (
     <button
-      onClick={removeHandler}
       type="button"
       className={styles.removeButton}
       data-testid="todo-item-delete-button"
@@ -20,3 +15,5 @@ export default function RemoveButton({ item, toDoItem, setToDoItem }) {
     </button>
   );
 }
+
+export default RemoveButton;

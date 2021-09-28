@@ -6,7 +6,6 @@ import TaskFooter from "../TaskFooter/TaskFooter";
 import styles from "./ToDo.module.scss";
 
 class ToDoContainer extends React.Component {
-
   return (
     <section className={styles.listContainer}>
       <FormToDo />
@@ -15,3 +14,5 @@ class ToDoContainer extends React.Component {
     </section>
   );
 }
+
+export default ToDoContainer;

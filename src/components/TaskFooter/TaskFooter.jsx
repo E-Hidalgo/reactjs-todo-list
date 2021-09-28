@@ -2,46 +2,30 @@
 import React from "react";
 import styles from "./TaskFooter.module.scss";
 
-export default function TaskFooter({ setStatus, toDoItem, setTodoItem }) {
-  const filterHandler = (e) => {
-    setStatus(e.target.value);
-  };
-
-  // Delete completed tasks
-  const clearCompleteHandler = () => {
-    setTodoItem(toDoItem.filter((item) => item.done === false));
-  };
-
-  // Count active tasks
-  const itemLeftCounter = () => {
-    const list = toDoItem.filter((item) => item.done === false).length;
-    return list;
-  };
-
+class TaskFooter extends React.Component {
   return (
     <>
       <footer data-testid="app-footer">
         <ul className={styles.taskFooter}>
-          <li>{itemLeftCounter()} Items left</li>
+          <li> Items left</li>
           <li>
-            <button type="button" value="all" onClick={filterHandler}>
+            <button type="button" value="all">
               All
             </button>
           </li>
           <li>
-            <button type="button" value="active" onClick={filterHandler}>
+            <button type="button" value="active">
               Active
             </button>
           </li>
           <li>
-            <button type="button" value="complete" onClick={filterHandler}>
+            <button type="button" value="complete">
               Complete
             </button>
           </li>
           <li>
             <button
               type="button"
-              onClick={clearCompleteHandler}
               data-testid="clear-completed-todos"
             >
               Clear Complete
@@ -52,3 +36,5 @@ export default function TaskFooter({ setStatus, toDoItem, setTodoItem }) {
     </>
   );
 }
+
+export default TaskFooter;
