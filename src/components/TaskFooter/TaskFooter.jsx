@@ -2,9 +2,10 @@
 import React from "react";
 import styles from "./TaskFooter.module.scss";
 
+// eslint-disable-next-line react/prefer-stateless-function
 class TaskFooter extends React.Component {
-  return (
-    <>
+  render() {
+    return (
       <footer data-testid="app-footer">
         <ul className={styles.taskFooter}>
           <li> Items left</li>
@@ -24,17 +25,14 @@ class TaskFooter extends React.Component {
             </button>
           </li>
           <li>
-            <button
-              type="button"
-              data-testid="clear-completed-todos"
-            >
+            <button type="button" data-testid="clear-completed-todos">
               Clear Complete
             </button>
           </li>
         </ul>
       </footer>
-    </>
-  );
+    );
+  }
 }
 
 export default TaskFooter;

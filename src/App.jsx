@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router } from "react-router-dom";
-import ToDoContainer from "./components/ToDoContainer/ToDo";
-import { Title } from "./components/Title/Title";
+import ToDoContainer from "./components/ToDoContainer";
+import Title from "./components/Title";
 import "./App.scss";
 
 function App() {
