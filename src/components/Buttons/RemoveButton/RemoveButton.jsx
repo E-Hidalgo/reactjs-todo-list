@@ -6,13 +6,14 @@ import styles from "./RemoveButton.module.scss";
 
 class RemoveButton extends React.Component {
   render() {
+    const { deleteToDoItem, item } = this.props;
     return (
       <button
         type="button"
         className={styles.removeButton}
         data-testid="todo-item-delete-button"
       >
-        <FaTrashAlt />
+        <FaTrashAlt onClick={() => deleteToDoItem(item.id)}/>
       </button>
     );
   }

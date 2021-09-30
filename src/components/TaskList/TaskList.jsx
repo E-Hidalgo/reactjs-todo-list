@@ -6,10 +6,21 @@ import styles from "./TaskList.module.scss";
 // eslint-disable-next-line react/prefer-stateless-function
 class TaskList extends React.Component {
   render() {
+    const { toDoList, deleteToDoItem, updateToDoItem } = this.props;
     return (
       <>
         <ul className={styles.taskList} data-testid="todos-list">
-          <Task />
+          {toDoList.map((item) => (
+            <Task
+              text={item.text}
+              key={item.id}
+              done={item.done}
+              item={item}
+              isEditing={item.isEditing}
+              deleteToDoItem={deleteToDoItem}
+              updateToDoItem={updateToDoItem}
+            />
+          ))}
         </ul>
       </>
     );
