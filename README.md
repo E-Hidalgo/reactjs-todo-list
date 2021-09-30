@@ -380,13 +380,3 @@ This project follows the
 specification. Contributions of any kind welcome!
 
 - Repo: https://github.com/E-Hidalgo/reactjs-todo-list
-
-- https://www.javascriptwillrule.com/reactjs-building-todo-app-for-beginners
-
-- https://www.richardhuf.com.au/how-to-create-a-todo-list-app-with-react/
-
-- https://github.com/richardhuf84/react-todo-list/blob/master/src/App.js
-
-- https://www.kirupa.com/react/simple_todo_app_react.htm
-
-- https://www.freakyjolly.com/reactjs-create-todo-application-in-reactjs-using-class-components/
