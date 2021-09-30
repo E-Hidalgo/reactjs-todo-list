@@ -4,10 +4,6 @@ import styles from "./FormToDo.module.scss";
 
 // eslint-disable-next-line react/prefer-stateless-function
 class FormToDo extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
 
   render() {
     return (
