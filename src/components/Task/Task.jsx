@@ -6,15 +6,25 @@ import "./Task.scss";
 // eslint-disable-next-line react/prefer-stateless-function
 class Task extends React.Component {
   render() {
-    const { text, deleteToDoItem, item, updateToDoItem } = this.props;
+    const {
+      text,
+      deleteToDoItem,
+      item,
+      updateToDoItem,
+      markCompletedToDoItem,
+    } = this.props;
     return (
       <li className="task" data-testid="todo-item" key={item.id}>
         <div className="">
-          <CheckButton />
+          <CheckButton
+            markCompletedToDoItem={markCompletedToDoItem}
+            item={item}
+          />
           <input
             value={text}
             id={item.id}
             onChange={(e) => updateToDoItem(e.target.value, item.id)}
+            className={`title ${item.done ? "done" : ""}`}
           />
         </div>
         <div className="taskControllers">

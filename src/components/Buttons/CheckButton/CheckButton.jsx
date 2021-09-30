@@ -6,13 +6,14 @@ import styles from "./CheckButton.module.scss";
 
 class CheckButton extends React.Component {
     render() {
+        const { markCompletedToDoItem, item } = this.props;
         return (
             <button
                 type="button"
                 className={styles.checkButton}
                 data-testid="todo-item-checkbox"
             >
-            <FaLaughBeam />
+            <FaLaughBeam onClick={() => markCompletedToDoItem(item.id)}/>
             </button>
         );
     }

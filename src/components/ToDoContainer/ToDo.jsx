@@ -21,7 +21,7 @@ class ToDoContainer extends React.Component {
     }
   }
 
-  // GET INPUT VALUE OF TODO ITEM
+  // GET INPUT VALUE OF TASK ITEM
   handleChangeInput = (e) => {
     this.setState({
       toDoItem: {
@@ -33,7 +33,7 @@ class ToDoContainer extends React.Component {
     })
   }
 
-  // ADD TODO ITEM TO LIST
+  // ADD TASK TO LIST
   addToDoItem = (e) => {
     e.preventDefault();
     const { toDoItem, toDoList } = this.state;
@@ -52,7 +52,7 @@ class ToDoContainer extends React.Component {
     }
   }
 
-  // DELETE TODO ITEM
+  // DELETE TASK 
   deleteToDoItem = (keyId) => {
     const { toDoList } = this.state;
     const filteredList = toDoList.filter((item) => item.id !== keyId);
@@ -61,12 +61,13 @@ class ToDoContainer extends React.Component {
     })
   }
 
-  // UPDATE TODO ITEM
+  // UPDATE TASK 
   updateToDoItem = (newText, keyId) => {
     const { toDoList } = this.state; 
     toDoList.forEach((item) => {
       if(item.id === keyId) {
         item.text = newText; // eslint-disable-line no-param-reassign
+        item.isEditing = true; // eslint-disable-line no-param-reassign
       }
     })
     this.setState({
@@ -74,13 +75,43 @@ class ToDoContainer extends React.Component {
     })
   }
 
+  // MARK COMPLETED TODO ITEMS
+  markCompletedToDoItem = (keyId) => {
+    const { toDoList } = this.state;
+    toDoList.forEach((item) => {
+      if(item.id === keyId) {
+        item.done = !item.done; // eslint-disable-line no-param-reassign
+      }
+      return item;
+    })
+    this.setState({
+      toDoList: toDoList,
+    });
+  }
+
+  // UNCOMPLETED TASK COUNT
+  itemLeftCounter = () => {
+    const { toDoList } = this.state;
+    const list = toDoList.filter((item) => item.done === false).length;
+    return list;
+  };
+
+  // DELETE COMPLETE TASK
+  deleteCompletedTask = () => {
+    const { toDoList } = this.state;
+    const filteredActiveList = toDoList.filter((item) => item.done === false);
+    this.setState({
+      toDoList: filteredActiveList
+    })
+  };
+
   render() {
     const { toDoList, toDoItem } = this.state;
     return (
       <section className={styles.listContainer}>
         <FormToDo handleChangeInput={this.handleChangeInput} addToDoItem={this.addToDoItem} toDoItem={toDoItem}/>
-        <TaskFooter />
-        <TaskList toDoList={toDoList} deleteToDoItem={this.deleteToDoItem} updateToDoItem={this.updateToDoItem}/>
+        <TaskFooter itemLeftCounter={this.itemLeftCounter} deleteCompletedTask={this.deleteCompletedTask}/>
+        <TaskList toDoList={toDoList} deleteToDoItem={this.deleteToDoItem} updateToDoItem={this.updateToDoItem} markCompletedToDoItem={this.markCompletedToDoItem}/>
       </section>
     );
   }
